@@ -71,7 +71,8 @@ To load registers with immediates larger than 4-bits, the Move Immediate instruc
 
 Load and store instructions operating on the 64KiB of memory are available:
 ![](assets/mem.png)
-They use two source registers, $r_1, r_2$ to construct a 16-bit address. $r_d$ serves as the register to load to or to store from.
+
+They use two source registers, $r_1, r_2$ to construct a 16-bit address. $r_d$ serves as the register to load to or to store from. A 6-bit signed immediate offset to the base address is available.
 
 
 ---
