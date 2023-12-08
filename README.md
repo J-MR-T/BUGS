@@ -43,15 +43,16 @@ In order the ALU operations are
 - $\texttt{SUB } r_d, r_1, r_2$ --- Does $r_d=r_1-r_2$. Sets flags
 - $\texttt{CMP } r_1, r_2$ --- Does $r_1-r_2$. Sets flags
 - $\texttt{NEG } r_d, r_1$ --- Does $r_d = -r_1$.
-- $\texttt{SLR } r_d, r_1$ --- Does $r_d = (r_1 >> 1)\texttt{ \& 0x7f}$ (i.e. a logical shift right).
+- $\texttt{SLR } r_d, r_1$ --- Does $r_d = (r_1 >> 1)$ `&` $\texttt{0x7f}$ (i.e. a logical shift right).
 - $\texttt{SAR } r_d, r_1$ --- Does $r_d = (r_1 >> 1)$ (i.e. an arithmetic shift right, shifting in the sign bit).
-- $\texttt{SLL } r_d, r_1$ --- Does $r_d = (r_1 << 1)\texttt{ \& 0x7f}$ (i.e. a logical shift left).
+- $\texttt{SLL } r_d, r_1$ --- Does $r_d = (r_1 << 1)$ (i.e. a logical shift left).
 - $\texttt{NOT } r_d, r_1$ --- Flips all bits from $r_1$ and saves the result to $r_d$.
-- $\texttt{AND } r_d, r_1, r_2$ --- Does $r_d = r_1 \texttt{ \& } r_2$.
-- $\texttt{OR } r_d, r_1, r_2$ --- Does $r_d = r_1 \texttt{ | } r_2$.
-- $\texttt{XOR } r_d, r_1, r_2$ --- Does $r_d = r_1 \texttt{ \^ } r_2$.
+- $\texttt{AND } r_d, r_1, r_2$ --- Does $r_d = r_1$ `&` $r_2$.
+- $\texttt{OR } r_d, r_1, r_2$ --- Does $r_d = r_1$ `|` $r_2$.
+- $\texttt{XOR } r_d, r_1, r_2$ --- Does $r_d = r_1$ `^` $r_2$.
 - 4 ALU opcodes remain reserved
 - note that as stated above, $r_2$ can be replaced with a 4-bit signed immediate in all of these cases.
+- Footnote: Damn Github for not supporting \texttt{\&}
 
 ---
 
@@ -83,4 +84,4 @@ All other encodings are reserved
 - As the simulator's program component is the only one supporting comfortable assembly programming with custom mnemonics, but is not integrated into the main RAM, the choice of a Harvard architecture is heavily favored, so I reluctantly obliged 
 - The number of registers (4) is this low, as I wanted to use a 3-address form for most of the instructions and thus 2 bits to address each register seemed optimal. It is of course a very severe practical limitation, but as this whole thing was more about designing an instruction set and encoding than practical application, I thought the trade-off was sensible in this case.
 - The architecture was named for the 'Branch Unsigend Greater Strict' (BUGS) instruction.
-- Overall I consider the project a success, it was a lot of fun to design and build, and I (partially re-)learned a bunch. I am of the opinion that you never know if you've really understood something until you've implemented it yourself. (Footnote: My brain tells me it's time to really make sure I've understood pipelining...). The only gripes I have with the architecture are the clunky memory instructions, each of which utilizes 3 out of the 4 available registers, and the small program and register sizes. This could be mostly remedied by 16-bit registers, which I would consider the spiritual '2.0' version of BUGS; I don't see much to be learned from implementing it though. I would much rather implement another architecture from the ground up in a more realistic simulator, with more attention towards timing, clock cycles, etc.${}_\text{ and pipelining maybe }$
+- Overall I consider the project a success, it was a lot of fun to design and build, and I (partially re-)learned a bunch. I am of the opinion that you never know if you've really understood something until you've implemented it yourself. (Footnote: My brain tells me it's time to really make sure I've understood pipelining...). The only gripes I have with the architecture are the clunky memory instructions, each of which utilizes 3 out of the 4 available registers, and the small program and register sizes. This could be mostly remedied by 16-bit registers, which I would consider the spiritual '2.0' version of BUGS; I don't see much to be learned from implementing it though. I would much rather implement another architecture from the ground up in a more realistic simulator, with more attention towards timing, clock cycles, etc.<sup>and pipelining maybe</sup>
