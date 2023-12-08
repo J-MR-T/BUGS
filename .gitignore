@@ -1,0 +1,18 @@
+/*
+!/architecture
+/architecture/*
+!/architecture/BUGS
+
+!/component_factory
+/component_factory/*
+!/component_factory/ALU2
+!/component_factory/2-bit\ DEC
+!/component_factory/4-bit\ DEC
+!/component_factory/DEC
+!/component_factory/WE\ Reg8
+
+!/README.md
+!/LICENSE
+
+!/assets
+!.gitignore
