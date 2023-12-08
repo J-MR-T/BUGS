@@ -1,0 +1,26 @@
+# mov r0, addr of 'halt'
+MOV | IMM | IMM_mult *halt
+
+
+# mov r2, addr of 'f'
+MOV | DST_mult*2 | IMM | IMM_mult *f
+
+# mov r1, 3
+MOV | DST_mult*1 | IMM | IMM_mult *3
+
+# call f 3 times
+BL | SRC1_mult*2
+BL | SRC1_mult*2
+BL | SRC1_mult*2
+# -> r1 should be 6 now
+# branch to halt
+B | SRC1_mult*0
+
+
+label f
+# add 1 to r1
+ADD | DST_mult*1 | SRC1_mult*1 | IMM | IMM_mult *1
+# branch to return address
+B | SRC1_mult*3
+
+label halt

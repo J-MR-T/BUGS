@@ -1,0 +1,24 @@
+
+# mov r1, 0
+XOR | DST_mult*1 | SRC1_mult*1 | SRC2_mult*1
+# mov r2, 0
+XOR | DST_mult*2 | SRC1_mult*2 | SRC2_mult*2
+
+# add r2, 7
+ADD | DST_mult*2 | SRC1_mult*2 | IMM | IMM_mult *7
+
+# for r1 = 0; r1 < r2; r1++
+label go
+ADD | DST_mult*1 | SRC1_mult*1 | IMM | IMM_mult *1
+
+
+# branch target to r0
+XOR | DST_mult*0 | SRC1_mult*0 | SRC2_mult*0
+ADD | DST_mult*0 | SRC1_mult*0 | IMM | IMM_mult * go
+
+CMP | SRC1_mult*1 | SRC2_mult * 2
+BSLS | SRC1_mult*0
+
+label cont # not needed, just organizing
+expect 1 7
+ADD | DST_mult*1 | SRC1_mult*1 | IMM | IMM_mult *0

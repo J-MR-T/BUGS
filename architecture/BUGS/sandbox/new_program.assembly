@@ -1,0 +1,5 @@
+# add r1, 3
+ALU | ADD | IMM | SRC1_mult * 1 | IMM_mult * 3 | DST_mult * 1
+
+# str 3 to addr 3
+STR | LO*1 | HI*0 | DST_mult * 1
