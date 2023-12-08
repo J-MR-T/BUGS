@@ -6,6 +6,7 @@ I designed BUGS in the educational ['Turing Complete'](https://store.steampowere
 
 ## Files
 
+The `component_factory` and `architecture` folders in this repo belong into the `schematics` folder in the Turing Complete data directory. I've included a verilog export of the most recent version at the time of creating this repo, but I can't guarantee I'll keep it up to date.
 
 ## BUGS-Architecture Reference Manual
 
