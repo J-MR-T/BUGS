@@ -4,9 +4,57 @@ A semi-serious computer architecture made as an exercise in designing a fixed-wi
 
 I designed BUGS in the educational ['Turing Complete'](https://store.steampowered.com/app/1444480/Turing_Complete/) simulator, which (arguably over-)simplifies some aspects of computer architecture. It also features a nice UI and input experience. This made my goal of designing my own ISA while refreshing and deepening my computer architecture knowledge approachable, although I would probably not design another more serious and performance-oriented architecture using Turing Complete. Both due to the simplifications (e.g. regarding the clock), and its limitations, e.g. with the built-in 'Program' component.
 
+---
+
+Overview
+- [Screenshots](#bugs-architecture-screenshots)
+- [Reference Manual](#bugs-architecture-reference-manual)
+
 ## Files
 
 The `component_factory` and `architecture` folders in this repo belong into the `schematics` folder in the Turing Complete data directory. I've included a verilog export of the most recent version at the time of creating this repo, but I can't guarantee I'll keep it up to date.
+
+## BUGS-Architecture Screenshots
+These are some screenshots of the architecture taken directly from Turing Complete
+
+---
+
+Program memory/PC selection:
+
+![](assets/tcScreenshots/programMemoryAndPCSelection.png)
+
+---
+
+Decoding:
+
+![](assets/tcScreenshots/decoding.png)
+
+---
+
+Register Bank feeding into ALU:
+
+![](assets/tcScreenshots/registerBankFeedingIntoALU.png)
+
+---
+
+ALU:
+
+![](assets/tcScreenshots/alu.png)
+
+---
+
+Address computation and RAM:
+
+![](assets/tcScreenshots/addrComputationAndRam.png)
+
+--- 
+
+Conditionals and Branching:
+
+![](assets/tcScreenshots/conditionalsAndBranching.png)
+
+---
+
 
 ## BUGS-Architecture Reference Manual
 
