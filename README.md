@@ -27,16 +27,16 @@ Other core features and specifications:
 I have hand-written documentation for the instruction set for myself, which I will share here for completeness' sake.
 
 The general format of the instructions is as follows:
-![](assets/GeneralInstrFormat.png)
+![](assets/handwrittenDocs/GeneralInstrFormat.png)
 
 For extensibility (as if it was necessary :)), $\text{op}_0=0$ is reserved:
 
-![](assets/reserved.png)
+![](assets/handwrittenDocs/reserved.png)
 
 ---
 
 The ALU supports a total of 12 operations, for operations that have two source operands (all but the shift, not, and negate operations), it can either use a 3-address form, or a 4-bit signed immediate as a second operand:
-![](assets/ALU.png)
+![](assets/handwrittenDocs/ALU.png)
 
 In order the ALU operations are
 - $\texttt{ADD } r_d, r_1, r_2$ --- Does $r_d=r_1+r_2$. Sets flags
@@ -57,12 +57,12 @@ In order the ALU operations are
 ---
 
 For control flow, 2 unconditional branches, including `BL` for ARM-style branching + linking are available. There are an additional 10 conditional branches (based on flags):
-![](assets/CF.png)
+![](assets/handwrittenDocs/CF.png)
 
 ---
 
 To load registers with immediates larger than 4-bits, the Move Immediate instruction is available:
-![](assets/MoveImm.png)
+![](assets/handwrittenDocs/MoveImm.png)
 - e.g. $\texttt{MOV } r_d, \texttt{0xff}$.
 - the first bit after $op_0$ is always 1. A 0 in this bit is reserved for a future register to register move. This would only be done to improve performance, as register to register moves are available through the ALU, e.g. by using $\texttt{ADD }r_d, r_1, 0$. Any assembler has the authority to encode $\texttt{MOV }r_d, r_1, r_2$ however they see fit.
 
@@ -70,7 +70,7 @@ To load registers with immediates larger than 4-bits, the Move Immediate instruc
 ---
 
 Load and store instructions operating on the 64KiB of memory are available:
-![](assets/mem.png)
+![](assets/handwrittenDocs/mem.png)
 
 They use two source registers, $r_1, r_2$ to construct a 16-bit address. $r_d$ serves as the register to load to or to store from. A 6-bit signed immediate offset to the base address is available.
 
